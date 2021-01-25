@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+#mainBackground {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+#tiTitle {
+    padding: 1%;
+    color: white;
+    font-size: 24px;
+    font-family: "微软雅黑";
+    background: rgba(0, 0, 0, .2);
+    border-radius: 10px;
+    transition: .3s;
+}
+
+#tiTitle:hover {
+    padding: 2%;
+}
