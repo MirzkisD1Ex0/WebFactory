@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+        .Not {
+            border: 5px blue solid;
+        }
+
+        .Yes {
+            border: 5px green solid;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="Show" @click="showToggle" />
+        <input type="button" value="Style" @click="styleToggle" />
+        <img :src="imgURL" v-show="isShow" :class="isStyle?'Not':'Yes'" />
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                isShow: true,
+                imgURL: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1594227812,2119448096&fm=26&gp=0.jpg",
+                isStyle: false,
+                imgStyle: "position: absolute;left: 10%;",
+            },
+            methods: {
+                showToggle: function () {
+                    this.isShow = !this.isShow;
+                },
+                styleToggle: function () {
+                    this.isStyle = !this.isStyle;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

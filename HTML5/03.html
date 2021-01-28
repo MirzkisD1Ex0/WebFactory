@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1></h1>
+
+    <script>
+        var value = 0;
+        function Sto(callback) {
+            setTimeout(function () {
+                value = 1;
+                callback();
+            }, 2000);
+        }
+        function Set() {
+            document.querySelector("h1").textContent = value;
+        }
+        Sto(Set);
+
+        function SetAgain() {
+            function Action(isSucess, isFailed) {
+                setTimeout(function () {
+                    isSucess("S");
+                    // isFailed("F");
+                }, 3000);
+            }
+            var p = new Promise(Action);
+            return p;
+        }
+
+        async function app() {
+            try {
+                const value = await SetAgain();
+                document.querySelector("h1").textContent = value;
+            }
+            catch (ex) {
+                alert(ex)
+            }
+        }
+        app();
+
+        // SetAgain()
+        //     .then(function (promRecive) {
+        //         document.querySelector("h1").textContent = promRecive;
+        //     })
+        //     .catch(function (promRecive) {
+        //         document.querySelector("h1").textContent = promRecive + "GGGGGGG";
+        //     });
+    </script>
+</body>
+
+</html>
