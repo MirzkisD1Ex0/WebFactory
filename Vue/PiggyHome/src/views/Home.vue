@@ -16,15 +16,20 @@ export default {
 </script>
 
 <style scoped>
-.home * {
-  border: 1px dashed #999;
-  border-radius: 1em;
+.home {
   margin: 5px;
   padding: 5px;
 }
 
 .home h3 {
+  border: 1px dashed #42b983;
+  border-radius: 1em;
   display: block;
+  width: 100%;
+  margin: 5px auto;
+  height: 30px;
+  line-height: 1em;
+  background: #fff;
   text-align: center;
 }
 
