@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @click="Resize">
     <div id="nav">
       <router-link to="/">豚豚之家</router-link>
       <router-link to="/timer">地球快照</router-link>
@@ -10,6 +10,19 @@
   </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    Resize: function () {
+      var bodyCmpt = document.getElementById("app");
+      bodyCmpt.style.width = window.screen.width;
+      bodyCmpt.style.height = 500;
+      console.log(bodyCmpt.style.height);
+    },
+  },
+};
+</script>
+
 <style>
 * {
   margin: 0;
@@ -17,6 +30,23 @@
   font-family: "黑体";
   border: none;
   color: #000;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.95),
+      rgba(255, 255, 255, 0.95)
+    ),
+    url("./assets/01.png");
+  background-size: contain;
 }
 
 #nav {

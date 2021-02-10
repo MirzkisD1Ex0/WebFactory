@@ -1,9 +1,12 @@
 <template>
   <div class="timer">
-    <div>
-      <button @click="GetDate">ASDASD</button>
+    <div class="title">
+      <button @click="GetDate"><strong>砸瓦鲁多(The World)</strong></button>
     </div>
-    <p>2021.02.10.08.58</p>
+    <div class="snapshot" v-for="(item, index) in timeArray" :key="index">
+      <p>{{ item }}</p>
+      <span>{{ tip }}</span>
+    </div>
     <Footer />
   </div>
 </template>
@@ -16,27 +19,60 @@ export default {
   },
   data() {
     return {
-      time: "",
+      timeArray: [],
+      tip: "√ 创建成功",
     };
   },
   methods: {
     GetDate: function () {
       var that = this;
-      that.time = "sd";
+      var date = new Date();
+      var year = date.getFullYear();
+      var month =
+        date.getMonth() + 1 < 10
+          ? "0" + (date.getMonth() + 1)
+          : date.getMonth() + 1;
+      var day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+      var hour = date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
+      var minute =
+        date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+      var second =
+        date.getSeconds() < 10 ? "0" + date.getSeconds() : date.getSeconds();
+      var millisecond = date.getMilliseconds();
+      if (millisecond < 10) {
+        millisecond = "00" + millisecond;
+      } else if (millisecond < 100) {
+        millisecond = "0" + millisecond;
+      }
+      that.timeArray.push(
+        year +
+          "." +
+          month +
+          "." +
+          day +
+          " " +
+          hour +
+          ":" +
+          minute +
+          ":" +
+          second +
+          ":" +
+          millisecond
+      );
     },
   },
 };
 </script>
 
 <style scoped>
-.timer div {
+.timer .title {
   display: flex;
-  margin: 0 auto;s
+  margin: 0 auto;
   font-size: 18px;
   padding: 0;
   width: 95%;
 }
-.timer div button {
+.timer .title button {
   border: 1px dashed #42b983;
   border-radius: 1em;
   display: block;
@@ -46,5 +82,31 @@ export default {
   line-height: 1em;
   background: #fff;
   text-align: center;
+}
+
+.timer .snapshot {
+  border: 1px dashed #999;
+  border-radius: 1em;
+  display: block;
+  margin: 10px auto;
+  font-size: 12px;
+  height: 1.5em;
+  line-height: 1.5em;
+  padding: 0;
+  display: flex;
+  width: 95%;
+}
+.timer .snapshot p {
+  width: 80%;
+  /* background: red; */
+  padding-left: 1em;
+}
+.timer .snapshot span {
+  border-left: 1px dashed #999;
+  padding-right: 1em;
+  text-align: right;
+  /* background: green; */
+  overflow: hidden;
+  width: 25%;
 }
 </style>

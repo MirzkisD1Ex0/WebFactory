@@ -6,6 +6,7 @@
         v-model="jokesCount"
         placeholder="你想看几条?"
         @change="CountCheck"
+        @input="InputCheck"
       />
     </div>
     <p v-for="(item, index) in jokes" :key="index">
@@ -44,6 +45,10 @@ export default {
           }
         );
     },
+    InputCheck: function () {
+      var that = this;
+      that.jokesCount = that.jokesCount.replace(/[^\d]/g, "");
+    }, // 输入限制
     CountCheck: function () {
       var that = this;
       if (that.jokesCount > 10) {
@@ -86,9 +91,12 @@ export default {
   text-align: center;
 }
 .joke p {
+  border: 1px dashed #42b983;
+  border-radius: 1em;
   display: block;
-  width: 95%;
+  width: 92%;
+  padding: 6px;
   margin: 1em auto;
-  font-size: 14px;
+  font-size: 12px;
 }
 </style>

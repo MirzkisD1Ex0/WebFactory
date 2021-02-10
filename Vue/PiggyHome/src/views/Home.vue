@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h3>有空常来</h3>
-    <img src="../assets/1.png" />
+    <img src="../assets/01.png" />
     <Footer />
   </div>
 </template>
