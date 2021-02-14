@@ -12,16 +12,11 @@
     <p v-for="(item, index) in jokes" :key="index">
       {{ index + 1 }}.{{ item }}
     </p>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
 export default {
-  components: {
-    Footer,
-  },
   data() {
     return {
       jokesCount: null,

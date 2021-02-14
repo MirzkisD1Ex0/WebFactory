@@ -2,33 +2,22 @@
   <div class="home">
     <h3>有空常来</h3>
     <img src="../assets/01.png" />
-    <Footer />
   </div>
 </template>
 
-<script>
-import Footer from "../components/Footer.vue";
-export default {
-  components: {
-    Footer,
-  },
-};
-</script>
-
 <style scoped>
 .home {
-  margin: 5px;
-  padding: 5px;
+  margin: 0 auto;
+  width: 95%;
 }
-
 .home h3 {
   border: 1px dashed #42b983;
-  border-radius: 1em;
+  border-radius: 30px;
   display: block;
   width: 100%;
-  margin: 5px auto;
+  margin: 15px auto;
   height: 30px;
-  line-height: 1em;
+  line-height: 30px;
   background: #fff;
   text-align: center;
 }

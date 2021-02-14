@@ -7,11 +7,17 @@
       <router-link to="/reserving">功能预留</router-link>
     </div>
     <router-view />
+    <Footer />
   </div>
 </template>
 
 <script>
+import Footer from "./components/Footer.vue";
+
 export default {
+  components: {
+    Footer,
+  },
   methods: {
     Resize: function () {
       var bodyCmpt = document.getElementById("app");

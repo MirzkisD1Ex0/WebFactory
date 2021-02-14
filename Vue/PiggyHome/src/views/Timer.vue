@@ -3,20 +3,18 @@
     <div class="title">
       <button @click="GetDate"><strong>砸瓦鲁多(The World)</strong></button>
     </div>
+    <div class="text">
+      该功能用于创建快照，以便在宇宙发生不可预测的灾难时恢复进度。
+    </div>
     <div class="snapshot" v-for="(item, index) in timeArray" :key="index">
       <p>{{ item }}</p>
       <span>{{ tip }}</span>
     </div>
-    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from "../components/Footer.vue";
 export default {
-  components: {
-    Footer,
-  },
   data() {
     return {
       timeArray: [],
@@ -84,6 +82,19 @@ export default {
   text-align: center;
 }
 
+.timer .text {
+  border: 1px dashed #aaa;
+  border-radius: 30px;
+  display: block;
+  width: 95%;
+  margin: 5px auto;
+  font-size: 10px;
+  height: 26px;
+  color: #aaa;
+  line-height: 28px;
+  background: #fff;
+  text-align: center;
+}
 .timer .snapshot {
   border: 1px dashed #999;
   border-radius: 1em;
