@@ -1,12 +1,25 @@
 <template>
   <div id="app">
+    <NavBar />
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <!-- <router-link to="/NavBar">NavBar</router-link> -->
+      <router-link to="/Home">Home</router-link> / 
+      <router-link to="/Page">Page</router-link>
+      <router-view />
     </div>
-    <router-view />
   </div>
 </template>
+
+<script>
+import NavBar from "./components/NavBar.vue";
+
+export default {
+  name: "App",
+  components: {
+    NavBar,
+  },
+};
+</script>
 
 <style>
 #app {
@@ -17,16 +30,16 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+#nav a:hover {
+  color: aqua;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+* {
+  transition: 0.25s;
+  color: #000;
+  text-decoration: none;
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 </style>
